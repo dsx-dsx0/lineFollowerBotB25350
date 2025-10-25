@@ -3,7 +3,7 @@
 // defining and initializing variables/constants that will be used.
 int err;
 int last_err;
-const int basesp = 150; // This is the base value of each motor.
+const int basesp = 170; // This is the base value of each motor.
 const int sensorMin = 0; // In real sensor, the min and max values will not be the same, and due to this they need to be mapped to fixed min and max values.
 // Therefore, if the min and max reading values of real sensors are known, they must be inputed here in an array.
 const int sensorMax = 1000;
@@ -11,6 +11,9 @@ const int setpoint = 2000; // This is the 'goal' of the PID system. It translate
 float integral_sum; // Used for calculating the cumulative error.
 int errdiff; // used to calulate the difference betweem the current error and the last one.
 const int sensorPins[5] = {A0, A1, A2, A3, A4};
+const float kp = 0.1;
+const float ki = 0.005;
+const float kd = 0.08;
 void setup() {
   Serial.begin(9600);
   pinMode (A0, INPUT);
